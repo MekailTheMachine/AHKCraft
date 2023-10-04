@@ -2,6 +2,7 @@
 Global X := 820
 Global Y := 580
 Global ItemCount := 0
+Global RowIterations = 0
 
 ; Set the delay between actions (in milliseconds)
 Delay := 10  ; Adjust as needed
@@ -34,9 +35,16 @@ Delay := 10  ; Adjust as needed
         X := X - 280  ; Subtract 350 units from X
         Y := Y + 70   ; Drop Y by 70 units
         ItemCount := 0  ; Reset the item count
+	RowIterations = RowIterations + 1
+
     } else {
         X := X + 70  ; Increase X by 70 units
     }
+    if (RowIterations = 3) {
+	Y := Y - 210  ;
+	RowIterations = 0
+	
+
 return
 
 ; Exit the script when the user presses '0'
